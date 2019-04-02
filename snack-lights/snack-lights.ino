@@ -6,22 +6,22 @@
     light:
     - platform: mqtt
       name: 'Office RGB light'
-      state_topic: 'liquor-lights/top/status'
-      command_topic: 'liquor-lights/top/switch'
-      brightness_state_topic: 'liquor-lights/top/brightness/status'
-      brightness_command_topic: 'liquor-lights/top/brightness/set'
-      rgb_state_topic: 'liquor-lights/top/rgb/status'
-      rgb_command_topic: 'liquor-lights/top/rgb/set'
+      state_topic: 'snack-lights/top/status'
+      command_topic: 'snack-lights/top/switch'
+      brightness_state_topic: 'snack-lights/top/brightness/status'
+      brightness_command_topic: 'snack-lights/top/brightness/set'
+      rgb_state_topic: 'snack-lights/top/rgb/status'
+      rgb_command_topic: 'snack-lights/top/rgb/set'
       brightness_scale: 100
       optimistic: false
     - platform: mqtt
       name: 'Office RGB light'
-      state_topic: 'liquor-lights/btm/status'
-      command_topic: 'liquor-lights/btm/switch'
-      brightness_state_topic: 'liquor-lights/btm/brightness/status'
-      brightness_command_topic: 'liquor-lights/btm/brightness/set'
-      rgb_state_topic: 'liquor-lights/btm/rgb/status'
-      rgb_command_topic: 'liquor-lights/btm/rgb/set'
+      state_topic: 'snack-lights/btm/status'
+      command_topic: 'snack-lights/btm/switch'
+      brightness_state_topic: 'snack-lights/btm/brightness/status'
+      brightness_command_topic: 'snack-lights/btm/brightness/set'
+      rgb_state_topic: 'snack-lights/btm/rgb/status'
+      rgb_command_topic: 'snack-lights/btm/rgb/set'
       brightness_scale: 100
       optimistic: false
 */
@@ -38,7 +38,7 @@
 const char* WIFI_SSID = MY_WIFI_SSID;
 const char* WIFI_PASSWORD = MY_WIFI_PASS;
 
-const PROGMEM char* MQTT_CLIENT_ID = "LIQUOR-LIGHTS";
+const PROGMEM char* MQTT_CLIENT_ID = "SNACK-LIGHTS";
 const PROGMEM char* MQTT_SERVER_IP = MY_MQTT_SERVER_IP;
 const PROGMEM uint16_t MQTT_SERVER_PORT = 1883;
 
@@ -103,8 +103,8 @@ void setup() {
   mqtt.setServer(MQTT_SERVER_IP, MQTT_SERVER_PORT);
   mqtt.setCallback(mqtt_message_received);
 
-  top_light = new Light("liquor-lights/top", 35, &mqtt);
-  btm_light = new Light("liquor-lights/btm", 34, &mqtt);
+  top_light = new Light("snack-lights/top", 35, &mqtt);
+  btm_light = new Light("snack-lights/btm", 34, &mqtt);
 }
 
 void loop() {
